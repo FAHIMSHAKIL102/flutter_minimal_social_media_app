@@ -9,7 +9,7 @@ ThemeData lightMode = ThemeData(
    inversePrimary: Colors.grey.shade800,
   ),
   textTheme: ThemeData.light().textTheme.apply(
-    bodyColor: Colors.grey.shade300,
+    bodyColor: Colors.grey.shade700,
     displayColor: Colors.black
   )
 );

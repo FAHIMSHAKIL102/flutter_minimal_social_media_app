@@ -7,9 +7,9 @@ class LoginPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
-      appBar: AppBar(title: Text('Social Media App')),
       body: Center(
         child: Column(
+          mainAxisAlignment: .center,
           children: [
             // logo
             Icon(
@@ -17,9 +17,10 @@ class LoginPage extends StatelessWidget {
               size: 80,
               color: Theme.of(context).colorScheme.inversePrimary,
             ),
+            SizedBox(height: 25),
 
             // app name
-
+            Text('Social Media App',style: TextStyle(fontSize: 25),),
             // email textfield
 
             // password textfield
