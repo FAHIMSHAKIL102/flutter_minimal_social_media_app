@@ -3,12 +3,12 @@ import 'package:flutter_minimal_social_media_app/widget/my_button.dart';
 import 'package:flutter_minimal_social_media_app/widget/my_textformfield.dart';
 
 class LoginPage extends StatelessWidget {
-  const LoginPage({super.key});
-
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  LoginPage({super.key});
+  void login() {}
   @override
   Widget build(BuildContext context) {
-    final emailController = TextEditingController();
-    final passwordController = TextEditingController();
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.surface,
       body: Center(
@@ -49,9 +49,30 @@ class LoginPage extends StatelessWidget {
                   Text('Forget password?', style: TextStyle(fontSize: 16)),
                 ],
               ),
+              SizedBox(height: 25),
               // signin button
-              MyButton(text: 'Login', ontap: () {}),
+              MyButton(text: 'Login', ontap: login),
+              SizedBox(height: 25),
               // don't have an account? Register here
+              Row(
+                mainAxisAlignment: .end,
+                children: [
+                  Text(
+                    "Don't have an account? ",
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: Text(
+                      " Register Here",
+                      style: TextStyle(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),
