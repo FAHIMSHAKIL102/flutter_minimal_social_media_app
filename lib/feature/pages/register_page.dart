@@ -3,9 +3,10 @@ import 'package:flutter_minimal_social_media_app/widget/my_button.dart';
 import 'package:flutter_minimal_social_media_app/widget/my_textformfield.dart';
 
 class RegisterPage extends StatelessWidget {
-    final emailController = TextEditingController();
+  final emailController = TextEditingController();
   final passwordController = TextEditingController();
-   RegisterPage({super.key});
+  final confirmPasswordController = TextEditingController();
+  RegisterPage({super.key});
   void register() {}
   @override
   Widget build(BuildContext context) {
@@ -28,6 +29,13 @@ class RegisterPage extends StatelessWidget {
               // app name
               Text('Social Media App', style: TextStyle(fontSize: 25)),
               SizedBox(height: 25),
+              // user name
+              MyTextformfield(
+                hintText: 'Email',
+                obscureText: false,
+                controller: emailController,
+              ),
+              SizedBox(height: 10),
               // email textfield
               MyTextformfield(
                 hintText: 'Email',
@@ -40,6 +48,13 @@ class RegisterPage extends StatelessWidget {
                 hintText: 'Password',
                 obscureText: true,
                 controller: passwordController,
+              ),
+              SizedBox(height: 10),
+              // confirm password textfield
+              MyTextformfield(
+                hintText: 'Password',
+                obscureText: true,
+                controller: confirmPasswordController,
               ),
               SizedBox(height: 10),
               // forgot password
