@@ -52,7 +52,7 @@ class RegisterPage extends StatelessWidget {
               SizedBox(height: 10),
               // confirm password textfield
               MyTextformfield(
-                hintText: 'Password',
+                hintText: 'Confirm Password',
                 obscureText: true,
                 controller: confirmPasswordController,
               ),
@@ -66,20 +66,20 @@ class RegisterPage extends StatelessWidget {
               ),
               SizedBox(height: 25),
               // signin button
-              MyButton(text: 'Login', ontap: register),
+              MyButton(text: 'Register', ontap: register),
               SizedBox(height: 25),
               // don't have an account? Register here
               Row(
                 mainAxisAlignment: .end,
                 children: [
                   Text(
-                    "Don't have an account? ",
+                    "Already have an account? ",
                     style: TextStyle(fontSize: 16),
                   ),
                   GestureDetector(
                     onTap: () {},
                     child: Text(
-                      " Register Here",
+                      " Login Here",
                       style: TextStyle(
                         fontSize: 16,
                         fontWeight: FontWeight.bold,
