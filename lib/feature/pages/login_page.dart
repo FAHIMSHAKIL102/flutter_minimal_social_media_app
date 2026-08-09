@@ -3,9 +3,10 @@ import 'package:flutter_minimal_social_media_app/widget/my_button.dart';
 import 'package:flutter_minimal_social_media_app/widget/my_textformfield.dart';
 
 class LoginPage extends StatelessWidget {
+  final void Function()? onTap;
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
-  LoginPage({super.key});
+  LoginPage({super.key, this.onTap});
   void login() {}
   @override
   Widget build(BuildContext context) {
