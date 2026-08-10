@@ -63,7 +63,7 @@ class LoginPage extends StatelessWidget {
                     style: TextStyle(fontSize: 16),
                   ),
                   GestureDetector(
-                    onTap: () {},
+                    onTap: onTap,
                     child: Text(
                       " Register Here",
                       style: TextStyle(

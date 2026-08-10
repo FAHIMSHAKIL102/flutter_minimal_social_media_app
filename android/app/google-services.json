@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "823070063665",
+    "project_id": "minimal-social-app-22233",
+    "storage_bucket": "minimal-social-app-22233.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:823070063665:android:46bea6e559b2d82a546910",
+        "android_client_info": {
+          "package_name": "com.example.flutter_minimal_social_media_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDEQds6HHSdXdkZLMgAYlhoXdFyabk0tN4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
