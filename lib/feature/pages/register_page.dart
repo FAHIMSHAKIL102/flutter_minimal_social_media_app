@@ -13,6 +13,7 @@ class RegisterPage extends StatefulWidget {
 }
 
 class _RegisterPageState extends State<RegisterPage> {
+  final userNameController = TextEditingController();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   final confirmPasswordController = TextEditingController();
@@ -32,22 +33,24 @@ class _RegisterPageState extends State<RegisterPage> {
       Navigator.pop(context);
       // show error message
       displayMessageToUser('Password do not match', context);
+    }else{
+      // try creating the user
+      try {
+        // create the user
+        UserCredential? userCredential = await FirebaseAuth.instance
+            .createUserWithEmailAndPassword(
+              email: emailController.text,
+              password: passwordController.text,
+            );
+        Navigator.pop(context);
+      } on FirebaseAuthException catch (e) {
+        // pop loading circle
+        Navigator.pop(context);
+        // display error message to user
+        displayMessageToUser(e.code, context);
+      }
     }
-    // try creating the user
-    try {
-      // create the user
-      UserCredential? userCredential = await FirebaseAuth.instance
-          .createUserWithEmailAndPassword(
-            email: emailController.text,
-            password: passwordController.text,
-          );
-      Navigator.pop(context);
-    } on FirebaseAuthException catch (e) {
-      // pop loading circle
-      Navigator.pop(context);
-      // display error message to user
-      displayMessageToUser(e.code, context);
-    }
+    
   }
 
   @override
@@ -76,7 +79,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 MyTextformfield(
                   hintText: 'User Name',
                   obscureText: false,
-                  controller: emailController,
+                  controller: userNameController,
                 ),
                 SizedBox(height: 10),
                 // email textfield
