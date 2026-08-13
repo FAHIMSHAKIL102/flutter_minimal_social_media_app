@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_minimal_social_media_app/helper/helper_functions.dart';
@@ -33,7 +34,7 @@ class _RegisterPageState extends State<RegisterPage> {
       Navigator.pop(context);
       // show error message
       displayMessageToUser('Password do not match', context);
-    }else{
+    } else {
       // try creating the user
       try {
         // create the user
@@ -42,7 +43,10 @@ class _RegisterPageState extends State<RegisterPage> {
               email: emailController.text,
               password: passwordController.text,
             );
-        Navigator.pop(context);
+        // create a user document and add to firestore
+        createUserDocument(userCredential);
+        // pop loading circle
+        if (context.mounted) Navigator.pop(context);
       } on FirebaseAuthException catch (e) {
         // pop loading circle
         Navigator.pop(context);
@@ -50,7 +54,19 @@ class _RegisterPageState extends State<RegisterPage> {
         displayMessageToUser(e.code, context);
       }
     }
-    
+  }
+
+  // create a user document and collect them in firestore
+  Future<void> createUserDocument(UserCredential? userCredential) async {
+    if (userCredential != null && userCredential.user != null) {
+      await FirebaseFirestore.instance
+          .collection("Users")
+          .doc(userCredential.user!.email)
+          .set({
+            'email': userCredential.user!.email,
+            'username': userNameController.text,
+          });
+    }
   }
 
   @override
