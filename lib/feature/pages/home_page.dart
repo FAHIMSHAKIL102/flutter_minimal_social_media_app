@@ -56,7 +56,7 @@ class HomePage extends StatelessWidget {
             builder: (context, snapshot) {
               // show loading
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(child: CircularProgressIndicator());
+                return Center(child: Icon(Icons.error));
               }
               // get all
               final posts = snapshot.data!.docs;
@@ -71,7 +71,8 @@ class HomePage extends StatelessWidget {
               }
               // return as a list
               return Expanded(
-                child: ListView.builder(itemCount: posts.length,
+                child: ListView.builder(
+                  itemCount: posts.length,
                   itemBuilder: (context, index) {
                     // get each individual post
                     final post = posts[index];
@@ -81,7 +82,11 @@ class HomePage extends StatelessWidget {
                     Timestamp timestamp = post['TimeStamp'];
                     // return as a list tile
                     return Padding(
-                      padding: const EdgeInsets.only(left: 10,right: 10,bottom: 10),
+                      padding: const EdgeInsets.only(
+                        left: 10,
+                        right: 10,
+                        bottom: 10,
+                      ),
                       child: ListTile(
                         title: Text(message),
                         subtitle: Text(userEmail),
